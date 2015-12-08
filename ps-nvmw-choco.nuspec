@@ -5,7 +5,7 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>ps-nvmw</id>
     <title>ps-nvmw (Install)</title>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <authors>Matt Levy</authors>
     <owners>Aaron Powell</owners>
     <summary>PowerShell module for managing multiple Node.js and io.js versions</summary>
@@ -18,7 +18,7 @@ There are 4 PowerShell commands exposed. They are similar for both Node.js and i
 
 _Note: Node.js will restrict you to a version number of v#.#.#, where as io.js will allow anything at the moment, as it runs off the nightly builds and the version string is more complex and I'm too lazy to write its regex._
 
-#### `Install-NodeVersion &lt;version&gt;`/`Install-iojsVersion &lt;version&gt;`
+#### `Install-NodeVersion VERSION_NUMBER`/`Install-iojsVersion VERSION_NUMBER`
 
     Install-NodeVersion v0.12.7
 
@@ -26,7 +26,7 @@ This will install the specified Node.js/io.js version. You can also use a `-Forc
 
 *Note: the `iojs` command accepts a `-Nightly` flag if you want to install from the nightly download list.*
 
-#### `Remove-NodeVersion &lt;version&gt;`/`Remove-iojsVersion &lt;version&gt;`
+#### `Remove-NodeVersion VERSION_NUMBER`/`Remove-iojsVersion VERSION_NUMBER`
 
     Remove-NodeVersion v0.12.7
 
@@ -38,7 +38,7 @@ This will remove the specified Node.js/io.js version from your machine.
 
 Shows a list of what Node.js/io.js versions are available.
 
-#### `Set-NodeVersion &lt;version&gt;`/`Set-iojsVersions`
+#### `Set-NodeVersion VERSION_NUMBER`/`Set-iojsVersions`
 
     Set-NodeVersion v0.12.7
 
@@ -48,9 +48,10 @@ Makes the specified Node.js/io.js version the currently loaded Node.js/io.js ver
 
 ### Profile
 
-To set the default nodejs version, add the `Set-NodeVersion &lt;version&gt;` command to your profile:
+To set the default nodejs version, add the `Set-NodeVersion VERSION_NUMBER` command to your profile:
 
     Set-NodeVersion v0.12.7
+
     </description>
     <projectUrl>https://github.com/aaronpowell/ps-nvmw</projectUrl>
     <tags>powershell module nodejs node javascript</tags>
