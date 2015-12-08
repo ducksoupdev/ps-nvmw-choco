@@ -1,9 +1,14 @@
 ﻿# get the powershell scripts to install
 $name   = 'ps-nvmw'
 $url    = 'https://raw.githubusercontent.com/aaronpowell/ps-nvmw/master/NodeVersionManager.psm1'
-$target = Join-Path $HOME 'Documents\WindowsPowerShell\Modules\ps-nvmw\NodeVersionManager.psm1'
+$targetFile = Join-Path $HOME 'Documents\WindowsPowerShell\Modules\ps-nvmw\NodeVersionManager.psm1'
+$targetFileDir = Join-Path $HOME 'Documents\WindowsPowerShell\Modules'
 
-Get-ChocolateyWebFile $name $target $url
+if (-Not (Test-Path $targetFileDir)) {
+    $targetFile = Join-Path $PSHOME 'Modules\ps-nvmw\NodeVersionManager.psm1'
+}
+
+Get-ChocolateyWebFile $name $targetFile $url
 
 # modify the users profile to load the version manager
 function Insert-Script([ref]$originalScript, $script) {
@@ -17,7 +22,7 @@ try {
     }
 
     $newProfile = @(Get-Content $PROFILE)
-    Insert-Script ([REF]$newProfile) "Import-Module $target"
+    Insert-Script ([REF]$newProfile) "Import-Module $targetFile"
     Set-Content -path $profile -value $newProfile -Force
 } catch {
   try {
