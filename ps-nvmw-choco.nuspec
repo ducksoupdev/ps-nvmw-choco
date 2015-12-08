@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
+    <id>ps-nvmw</id>
+    <title>ps-nvmw (Install)</title>
+    <version>0.1.0</version>
+    <authors>Matt Levy</authors>
+    <owners>Aaron Powell</owners>
+    <summary>PowerShell module for managing multiple Node.js and io.js versions</summary>
+    <description>### ps-nvmw
+This is a simple PowerShell module for installing and using multiple Node.js and io.js versions on Windows.
+
+### Usage
+
+There are 4 PowerShell commands exposed. They are similar for both Node.js and io.js, with the difference being whether you use `Node` or `iojs` in the command name.
+
+_Note: Node.js will restrict you to a version number of v#.#.#, where as io.js will allow anything at the moment, as it runs off the nightly builds and the version string is more complex and I'm too lazy to write its regex._
+
+#### `Install-NodeVersion &lt;version&gt;`/`Install-iojsVersion &lt;version&gt;`
+
+    Install-NodeVersion v0.12.7
+
+This will install the specified Node.js/io.js version. You can also use a `-Force` flag to override an existing install
+
+*Note: the `iojs` command accepts a `-Nightly` flag if you want to install from the nightly download list.*
+
+#### `Remove-NodeVersion &lt;version&gt;`/`Remove-iojsVersion &lt;version&gt;`
+
+    Remove-NodeVersion v0.12.7
+
+This will remove the specified Node.js/io.js version from your machine.
+
+#### `Get-NodeVersions`/`Get-iojsVersions`
+
+    Get-NodeVersions
+
+Shows a list of what Node.js/io.js versions are available.
+
+#### `Set-NodeVersion &lt;version&gt;`/`Set-iojsVersions`
+
+    Set-NodeVersion v0.12.7
+
+Makes the specified Node.js/io.js version the currently loaded Node.js/io.js version for your terminal.
+
+*Note: the `iojs` command will alias `iojs` to `node` as well, pass the `-NoAlias` flag if you don't want it aliased.*
+
+### Profile
+
+To set the default nodejs version, add the `Set-NodeVersion &lt;version&gt;` command to your profile:
+
+    Set-NodeVersion v0.12.7
+    </description>
+    <projectUrl>https://github.com/aaronpowell/ps-nvmw</projectUrl>
+    <tags>powershell module nodejs node javascript</tags>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
