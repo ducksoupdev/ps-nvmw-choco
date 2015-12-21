@@ -58,7 +58,7 @@ To set the default nodejs version, add the `Set-NodeVersion VERSION_NUMBER` comm
     <tags>powershell module nodejs node javascript</tags>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>https://github.com/ducksoupdev/ps-nvmw-choco/blob/master/CHANGELOG.md</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
