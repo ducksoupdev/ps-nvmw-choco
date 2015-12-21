@@ -9,6 +9,7 @@
     <authors>Matt Levy</authors>
     <owners>Aaron Powell</owners>
     <summary>PowerShell module for managing multiple Node.js and io.js versions</summary>
+    <packageSourceUrl>https://github.com/ducksoupdev/ps-nvmw-choco</packageSourceUrl>
     <description>### ps-nvmw
 This is a simple PowerShell module for installing and using multiple Node.js and io.js versions on Windows.
 
@@ -57,6 +58,7 @@ To set the default nodejs version, add the `Set-NodeVersion VERSION_NUMBER` comm
     <tags>powershell module nodejs node javascript</tags>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes></releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
