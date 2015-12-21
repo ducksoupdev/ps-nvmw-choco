@@ -16,12 +16,14 @@ function Insert-Script([ref]$originalScript, $script) {
 }
 
 try {
+    $newProfile = @()
+    
     if(Test-Path $PROFILE) {
         $oldProfile = @(Get-Content $PROFILE)
-        $newProfile = @()
+        #$newProfile = @()
+        #$newProfile = @(Get-Content $PROFILE)
     }
 
-    $newProfile = @(Get-Content $PROFILE)
     Insert-Script ([REF]$newProfile) "Import-Module $targetFile"
     Set-Content -path $profile -value $newProfile -Force
 } catch {
